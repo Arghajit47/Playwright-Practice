@@ -5,7 +5,7 @@ exports.LoginPage = class LoginPage {
     this.email_textbox = page.getByPlaceholder("Email Address");
     this.password_textbox = page.getByPlaceholder("Password");
     this.signin_button = page.getByRole("button", { name: "sign in" });
-    this.tripple_button = page.locator('div > em[id="hamburger_icon"]');
+    this.tripple_button = page.locator("//em[@id='hamburger_icon']");
     this.signout_button = page.locator('div > ul > li[onclick="signOut();"]');
   }
 
