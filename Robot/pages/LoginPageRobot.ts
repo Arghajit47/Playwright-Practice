@@ -16,8 +16,28 @@ export class LoginPageRobotEyes extends BaseEyes {
       'span > a[onclick="javascript:funBackToSignUp();return false;"]'
     );
   }
-  async validateHoursPageUrl() {
-    await super.seesPathNameInUrl("https://www.yocoboard.com/hours");
+  async validateHoursPage() {
+    await super.seesDomVisible('div[id="company-logo"]');
+    await super.seesDomVisible('img[id="userPhoto"]');
+    await super.seesDomVisible('h3[id="userName_header"]');
+  }
+  async validateInvalidCredentialsText() {
+    await super.seesDomContainText(
+      'div > span[class="pwd-reset-msg"]',
+      "Invalid Credential..."
+    );
+  }
+  async validateForgotPasswordPage() {
+    await super.seesDomContainText(
+      'div[id="forgot-pwd-form"] > h3',
+      "Forgot Password"
+    );
+    await super.seesDomContainText(
+      'div[id="forgot-pwd-form"] > div > span',
+      "Enter your email address to reset your password"
+    );
+    await super.seesDomVisible('input[id="frgtPsswrdMailId"]');
+    await super.seesDomEnabled('button[id="resetPassword"]');
   }
 }
 
@@ -37,13 +57,22 @@ export class LoginPageRobotHands extends BaseHands {
   async clickOnLoginButton() {
     await super.clickOnDomElementWithIndex('a[class="login_button"]', 0);
   }
-  async inputEmailId() {
-    await super.typeTextonId("email", "arghajitsingha47+user+admin@gmail.com");
+  async inputEmailId(email: string) {
+    await super.typeTextonId("email", email);
   }
-  async inputPassword() {
-    await super.typeTextonId("password", "Asughan4711");
+  async inputPassword(password: string) {
+    await super.typeTextonId("password", password);
   }
   async clickOnSignInButton() {
     await super.clickOnDomElement('button[aria-label="sign in"]');
+  }
+  async clickOnHamburgerIcon() {
+    await super.clickOnDomElement('em[id="hamburger_icon"]');
+  }
+  async clickOnSignOut() {
+    await super.clickOnDomElement('ul > li[onclick="signOut();"]');
+  }
+  async clickOnForgotPassword() {
+    await super.clickOnId("forgotPassword");
   }
 }
