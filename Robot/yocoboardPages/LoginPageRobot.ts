@@ -67,6 +67,7 @@ export class LoginPageRobotHands extends BaseHands {
     await super.clickOnDomElement('button[aria-label="sign in"]');
   }
   async clickOnHamburgerIcon() {
+    await super.scrollIntoElement('aside[class="sidebar"]');
     await super.clickOnDomElement('em[id="hamburger_icon"]');
   }
   async clickOnSignOut() {

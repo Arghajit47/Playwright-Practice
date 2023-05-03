@@ -170,6 +170,10 @@ export class BaseHands {
     return this;
   }
 
+  async scrollIntoElement(dom: string) {
+    await this.page.locator(`${dom}`).scrollIntoViewIfNeeded();
+  }
+
   // async getTheChildWindow(dom:string){
   //   const[childWindow]=await Promise.all([
   //     await this.context.waitForEvent("page"),

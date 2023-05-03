@@ -3,7 +3,7 @@ import {
   LoginPageRobotDependencies,
   LoginPageRobotEyes,
   LoginPageRobotHands,
-} from "../../Robot/pages/LoginPageRobot";
+} from "../../Robot/yocoboardPages/LoginPageRobot";
 import { test, assert } from "../../fixturesD/myFixtures";
 
 test.describe("Login Testing", async () => {
