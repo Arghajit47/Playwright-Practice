@@ -3,17 +3,27 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "clean": "rimraf allure-results && rimraf allure-reports && rimraf test-results",
+    "test": "playwright test --headed",
+    "test:headless": "playwright test",
+    "test:reporter": "npm run clean && playwright test --headed --reporter=allure-playwright && allure-report",
+    "allure-report": "npx allure generate --clean allure-results && npx allure open"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.33.0",
-    "experimental-allure-playwright": "0.0.3",
+    "allure-playwright": "^2.2.1",
     "playwright": "^1.33.0",
+    "rimraf": "^5.0.0",
     "ts-node": "10.0.0",
     "typescript": "4.3.2",
     "winston": "^3.6.0"
   },
-  "timeout": 10000
+  "timeout": 10000,
+  "dependencies": {
+    "allure-commandline": "^2.22.0"
+  }
 }

@@ -11,6 +11,10 @@ type myfixtureType = {
   validPassword: string;
   inValidEmailId: string;
   inValidPassword: string;
+  ValidUserName: string;
+  ValidPassword: string;
+  InvalidUserName: string;
+  InvalidPassword: string;
 };
 
 const fixture = baseTest.extend<myfixtureType>({
@@ -18,6 +22,10 @@ const fixture = baseTest.extend<myfixtureType>({
   validPassword: "Asughan4711",
   inValidEmailId: "arghajitsingha47+user@gmail.com",
   inValidPassword: "Arghaj11",
+  ValidPassword: "admin123",
+  ValidUserName: "Admin",
+  InvalidUserName: "admin",
+  InvalidPassword: "admin",
 });
 // This fixture is the actual "test" from playwright test (line number 2)
 export const test = fixture;

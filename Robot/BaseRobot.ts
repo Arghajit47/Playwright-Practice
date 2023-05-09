@@ -92,6 +92,11 @@ export class BaseEyes {
     return frame;
   }
 
+  async seesDomContainTextWithIndex(dom: string, text: string, index: number) {
+    const domIndex = await this.page.locator(dom).nth(index);
+    await expect(domIndex).toContainText(text);
+  }
+
   // async seesAlertTextWithId(id:string,text:string){
   //   this.page.on("dialog",async alert=>{
   //     const alertMessage=alert.message();
@@ -160,8 +165,8 @@ export class BaseHands {
     return this;
   }
 
-  async typeTextonDom(locatorName: string, locatorValue: string, text: string) {
-    await this.page.locator(`${locatorName}[${locatorValue}]`).type(text);
+  async typeTextonDom(dom: string, text: string) {
+    await this.page.locator(`${dom}`).type(text);
     return this;
   }
 
